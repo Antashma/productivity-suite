@@ -3,13 +3,27 @@ import Timer from "./Timer/Timer";
 import ToDoList from "./ToDo/ToDoList";
 
 function Home() {
+
+  const prodAppsContainerStyle = {
+    display: "flex",
+    flexDirection: "column"
+  }
+  
+  const todoAndTimerContainerStyle = {
+    display: "flex",
+    justifyContent: "space-between"
+  }
+
   return (
     <div>
       <h2>Home</h2>
-      <p>Welcome!</p>
-      <Clock />
-      <Timer />
-      <ToDoList />
+      <div style={prodAppsContainerStyle}>
+        <Clock />
+        <div style={todoAndTimerContainerStyle}>
+          <ToDoList />
+          <Timer />
+        </div>
+      </div>
     </div>
   );
 }

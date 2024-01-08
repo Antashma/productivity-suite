@@ -77,13 +77,16 @@ function Clock() {
     const clockContainerStyle = {
         background: `url(${swayingFlowersImg}) center`,
         width: "80vw",
-        height: "500px",
+        height: "200px",
         margin: "0 auto",
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
         alignContent: "space-around",
         alignItems: "center"
+    }
+
+    const clockTextContainerStyle = {
+        display:"flex"
     }
 
     const loadingStyle = {
@@ -97,9 +100,12 @@ function Clock() {
     return ( 
         <section style={clockContainerStyle}>
             {currentDate.time && currentDate.day ? (
-            <div >
+            <div style={clockTextContainerStyle}>
                 <p style={timeStyle}>{currentDate.time}</p>
-                <p style={dayStyle}>its {currentDate.day}, {currentDate.month}/{currentDate.date}</p>
+                <div style={dayStyle}>
+                    <p>its {currentDate.day}</p>
+                    <p>{currentDate.month}/{currentDate.date}</p>
+                </div>
             </div> ) 
             : <p style={loadingStyle}>loading clock...</p>}
         </section> 
