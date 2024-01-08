@@ -1,0 +1,9 @@
+# to do redux integration
+- actions/reducers for add, update, delete
+- state of form for edit mode and add mode
+
+## ADD
+- actoions
+- action creators
+- reducers
+
