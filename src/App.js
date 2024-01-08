@@ -1,7 +1,6 @@
 import React from "react";
-import Timer from "./components/Timer";
-import ToDoList from "./components/ToDo/ToDoList";
 import Home from "./components/Home";
+import About from "./components/About";
 import { Link, Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -18,14 +17,12 @@ function App() {
       <p>a collection of productivity apps to help you get things done</p>
       <nav style={navStyle}>
         <Link to="/">Home</Link>
-        <Link to="to-do">To Do</Link>
-        <Link to="timer">Timer</Link>
+        <Link to="about">About</Link>
       </nav>
 
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="to-do" element={<ToDoList />} />
-        <Route path="timer" element={<Timer />} />
+        <Route path="about" element={<About />} />
       </Routes>
     </div>
   );

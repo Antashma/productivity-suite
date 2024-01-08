@@ -1,4 +1,6 @@
-import Clock from "./Home/Clock";
+import Clock from "./Clock/Clock";
+import Timer from "./Timer/Timer";
+import ToDoList from "./ToDo/ToDoList";
 
 function Home() {
   return (
@@ -6,6 +8,8 @@ function Home() {
       <h2>Home</h2>
       <p>Welcome!</p>
       <Clock />
+      <Timer />
+      <ToDoList />
     </div>
   );
 }

@@ -1,6 +1,6 @@
-import Time from "../components/Time";
+import Time from "./Time";
 import { useEffect, useState } from "react";
-import {presetTimers} from "../data/timer";
+import {presetTimers} from "../../data/timer";
 
 
 const initialTimer = {
