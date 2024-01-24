@@ -23,7 +23,7 @@ function ToDoForm(props) {
             value={newTask}
             onChange={handleChange}  
         />
-        <button onClick={handleAdd}>➕ Add</button> 
+        <button onClick={handleAdd}>➕ Add New Task</button> 
     </form>
     );
 }

@@ -29,9 +29,7 @@ function Timer() {
                 <p>set for focus or breaks</p>
             </header>
             <main>
-                <section>
-                    {displayPresetTimers}
-                </section>
+          
 
                 <Time 
                     currentDuration={currentDuration}
@@ -47,6 +45,9 @@ function Timer() {
                     {!timerIsOn ? "Start" : "Pause"}
                 </button>
                 <button onClick={() => setCurrentDuration({minutes: timer.duration, seconds: 0})}>Reset</button>
+                <section>
+                    {displayPresetTimers}
+                </section>
             </main>
         </div>
         );

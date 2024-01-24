@@ -1,3 +1,7 @@
 .highlighted {
     background-color: magenta;
 }
+
+.starred::before {
+    content: '⭐';
+}

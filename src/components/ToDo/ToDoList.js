@@ -47,6 +47,19 @@ function ToDoList() {
         })
     }
 
+    function toggleStar(taskId) {
+        const found = todoList.find(todo => taskId === todo.id)
+        found.priority = found.priority === 1 ? 0 : 1
+        
+        setTodoList(prev => prev.map(todo => {
+            if (todo.id === taskId) {
+                return found
+            } else {
+                return todo
+            }
+        }))
+    }
+
     const listContainerStyle ={
         width: "500px"
     }
@@ -56,6 +69,7 @@ function ToDoList() {
             key={todo.id} 
             todoData={todo} 
             toggle={() => toggleCompleted(todo.id)}
+            toggleStar = {() => toggleStar(todo.id)}
             del={deleteToDo}
             />
     })

@@ -86,7 +86,7 @@ function Clock() {
     }
 
     const clockTextContainerStyle = {
-        display:"flex"
+        display:"flex",
     }
 
     const loadingStyle = {

@@ -2,9 +2,9 @@ import "./style.css"
 
 function ToDo(props) {
 
-    const { id, title, completed } = props.todoData;
+    const { id, title, completed, priority } = props.todoData;
 
-    const {toggle, del} = props
+    const {toggle, del, toggleStar} = props
 
     const completedStyle = {
         textDecoration: "line-through",
@@ -31,6 +31,7 @@ function ToDo(props) {
         gap: "10px"
     }
 
+
     return (
         
         <div style={toDoContainerStyle}>
@@ -38,13 +39,16 @@ function ToDo(props) {
             <div style={leftContainer}>
                 
                 <input style={checkStyle}  type="checkbox" value={completed} onClick={toggle}/>
-                <p style={completed ? completedStyle : null} >
+                <p style={completed ? completedStyle : null} className={priority === 1 ? "starred" : ""}>
                     {title}
                 </p>
 
             </div>
             <div>    
-                <button id="edit">📝"Edit"</button>
+                {/* <button id="edit">📝"Edit"</button> */}
+                <button onClick={() => toggleStar(id)}>⭐ 
+                {priority === 1 ? "Unstar" : "Star"}
+                </button>
                 <button onClick={() => del(id)}>❎ Del</button>
             </div>  
         </div>
