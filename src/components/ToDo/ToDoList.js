@@ -7,7 +7,7 @@ import { useState } from "react";
 function ToDoList() {
     const [todoList, setTodoList] = useState(todos);
     const [starModeOn, setStarModeOn] = useState(false);
-    const [starList, setStarList] = useState(todos);
+    // const [starList, setStarList] = useState(todos);
 
 
     function toggleCompleted(id) {
@@ -74,17 +74,6 @@ function ToDoList() {
             toggleStar = {() => toggleStar(todo.id)}
             del={deleteToDo}
             isStarModeOn={starModeOn}
-            />
-    })
-
-    const starListDisplay = starList?.map(todo => {
-        return <ToDo 
-            key={todo.id} 
-            todoData={todo} 
-            toggle={() => toggleCompleted(todo.id)}
-            toggleStar = {() => toggleStar(todo.id)}
-            del={deleteToDo}
-            
             />
     })
 

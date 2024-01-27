@@ -11,7 +11,8 @@ function Home() {
   
   const todoAndTimerContainerStyle = {
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    gap: "20px"
   }
 
   return (
