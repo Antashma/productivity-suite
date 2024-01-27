@@ -5,7 +5,9 @@ import { useState } from "react";
 //import {connect} from 'react-redux'
 
 function ToDoList() {
-    const [todoList, setTodoList] = useState(todos)
+    const [todoList, setTodoList] = useState(todos);
+    const [starModeOn, setStarModeOn] = useState(false);
+    const [starList, setStarList] = useState(todos);
 
 
     function toggleCompleted(id) {
@@ -71,14 +73,51 @@ function ToDoList() {
             toggle={() => toggleCompleted(todo.id)}
             toggleStar = {() => toggleStar(todo.id)}
             del={deleteToDo}
+            isStarModeOn={starModeOn}
             />
     })
+
+    const starListDisplay = starList?.map(todo => {
+        return <ToDo 
+            key={todo.id} 
+            todoData={todo} 
+            toggle={() => toggleCompleted(todo.id)}
+            toggleStar = {() => toggleStar(todo.id)}
+            del={deleteToDo}
+            
+            />
+    })
+
+    function toggleStarMode() {
+        if (starModeOn) {
+            setStarModeOn(false)
+
+        } else {
+            setStarModeOn(true)
+            // let maxWindowSize = todoList.length;
+            // const copy = [...todoList]
+            // copy.sort((a, b) => b.priority - a.priority)
+    
+            // for (let index in copy) {
+            //     if (copy[index].priority === 1) {
+            //         maxWindowSize--
+            //     }
+            // }            
+        }
+
+        
+    }
 
 
     return (
         <div style={listContainerStyle}>
             <h2>To Do List</h2>
-            <ToDoForm add={addToDo}  />
+            <ToDoForm add={addToDo} startModeOn={starModeOn} />
+            <div>
+                <button onClick={toggleStarMode}>
+                    {starModeOn ? "Show All Tasks" : "Show Starred Tasks"} 
+                </button>
+            </div>
             <main>
                 {todolistDisplay}  
             </main>

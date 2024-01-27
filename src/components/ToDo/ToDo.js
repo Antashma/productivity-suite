@@ -3,42 +3,24 @@ import "./style.css"
 function ToDo(props) {
 
     const { id, title, completed, priority } = props.todoData;
-
-    const {toggle, del, toggleStar} = props
+    const {toggle, del, toggleStar, isStarModeOn} = props
 
     const completedStyle = {
         textDecoration: "line-through",
         color: "silver",
     };
 
-    const toDoContainerStyle = {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        fontSize: "1.5rem"
+    const starModeOnVisibilityStyle = {
+        display: "none"
     }
-
-    const checkStyle = {
-        width: "20px",
-        height: "20px"
-    }
-
-    const leftContainer = {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "10px"
-    }
-
 
     return (
         
-        <div style={toDoContainerStyle}>
+        <div className="todo--container" style={isStarModeOn && priority !== 1? starModeOnVisibilityStyle : null}>
            
-            <div style={leftContainer}>
+            <div className="todo--container-left">
                 
-                <input style={checkStyle}  type="checkbox" value={completed} onClick={toggle}/>
+                <input className="todo--container-checkInput"  type="checkbox" value={completed} onClick={toggle}/>
                 <p style={completed ? completedStyle : null} className={priority === 1 ? "starred" : ""}>
                     {title}
                 </p>

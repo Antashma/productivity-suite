@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function ToDoForm(props) {
-    const { add } = props;
+    const { add, starModeOn } = props;
     const [newTask, setNewTask] = useState("");
 
     function handleAdd(e) {
@@ -23,7 +23,7 @@ function ToDoForm(props) {
             value={newTask}
             onChange={handleChange}  
         />
-        <button onClick={handleAdd}>➕ Add New Task</button> 
+        <button onClick={handleAdd} disabled={starModeOn}>➕ Add New Task</button> 
     </form>
     );
 }
