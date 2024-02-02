@@ -21,9 +21,11 @@ function ToDoForm(props) {
             type="text" 
             placeholder="create task"
             value={newTask}
-            onChange={handleChange}  
+            onChange={handleChange} 
+            disabled={starModeOn}
         />
-        <button onClick={handleAdd} disabled={starModeOn}>➕ Add New Task</button> 
+        <button onClick={handleAdd} disabled={starModeOn || newTask.trim().length < 1}>➕ Add New Task</button> 
+        <p>***Note: New tasks cannot be created in Starred Only mode***</p>
     </form>
     );
 }

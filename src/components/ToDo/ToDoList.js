@@ -59,6 +59,19 @@ function ToDoList() {
         })
     }
 
+    function clearCompleted() {
+        console.log("clear Completed activated")
+        setTodoList(prev => {
+            const result = [];
+            prev.forEach(todo => {
+                if (todo.completed === false) {
+                    result.push(todo)
+                } 
+            })
+            return result
+        })
+    }
+
     function toggleStar(taskId) {
         const found = todoList.find(todo => taskId === todo.id)
         found.priority = found.priority === 1 ? 0 : 1
@@ -90,11 +103,14 @@ function ToDoList() {
 
     return (
         <div style={listContainerStyle}>
-            <h2>To Do List</h2>
+            <h2>{starModeOn ? "[Starred Only] " : ""}To Do List</h2>
             <ToDoForm add={addToDo} starModeOn={starModeOn} />
             <div>
                 <button onClick={() => setStarModeOn(!starModeOn) }>
-                    {starModeOn ? "Show All Tasks" : "Show Starred Tasks"} 
+                    {starModeOn ? "Show All Tasks" : "Only Show Starred Tasks"} 
+                </button>
+                <button onClick={clearCompleted}>
+                   Clear Completed
                 </button>
             </div>
             <main>
