@@ -2,12 +2,10 @@ import ToDo from "./ToDo";
 import ToDoForm from "./ToDoForm";
 import { todos } from "../../data/todo";
 import { useState } from "react";
-//import {connect} from 'react-redux'
 
 function ToDoList() {
     const [todoList, setTodoList] = useState(todos);
     const [starModeOn, setStarModeOn] = useState(false);
-    // const [starList, setStarList] = useState(todos);
 
 
     function toggleCompleted(id) {
@@ -35,6 +33,18 @@ function ToDoList() {
                 }
             ]
         })
+    }
+
+    function editToDo(newTaskTitle, taskId) {
+        console.log(`editing task with id#${taskId} with new title: "${newTaskTitle}"`)
+
+        setTodoList(prev => prev.map(todo => {
+            if (todo.id === taskId) {
+                return {...todo, title: newTaskTitle}
+            } else {
+                return todo
+            }
+        }))
     }
 
     function deleteToDo(taskId) {
@@ -73,37 +83,17 @@ function ToDoList() {
             toggle={() => toggleCompleted(todo.id)}
             toggleStar = {() => toggleStar(todo.id)}
             del={deleteToDo}
+            edit={editToDo}
             isStarModeOn={starModeOn}
             />
     })
 
-    function toggleStarMode() {
-        if (starModeOn) {
-            setStarModeOn(false)
-
-        } else {
-            setStarModeOn(true)
-            // let maxWindowSize = todoList.length;
-            // const copy = [...todoList]
-            // copy.sort((a, b) => b.priority - a.priority)
-    
-            // for (let index in copy) {
-            //     if (copy[index].priority === 1) {
-            //         maxWindowSize--
-            //     }
-            // }            
-        }
-
-        
-    }
-
-
     return (
         <div style={listContainerStyle}>
             <h2>To Do List</h2>
-            <ToDoForm add={addToDo} startModeOn={starModeOn} />
+            <ToDoForm add={addToDo} starModeOn={starModeOn} />
             <div>
-                <button onClick={toggleStarMode}>
+                <button onClick={() => setStarModeOn(!starModeOn) }>
                     {starModeOn ? "Show All Tasks" : "Show Starred Tasks"} 
                 </button>
             </div>
