@@ -44,6 +44,13 @@ function Timer() {
                 >
                     {!timerIsOn ? "Start" : "Pause"}
                 </button>
+
+                <button onClick={() => {
+                    setCurrentDuration({minutes: timer.duration, seconds: 0});
+                    setTimerIsOn(false); 
+                }}
+                >Stop</button>
+
                 <button onClick={() => setCurrentDuration({minutes: timer.duration, seconds: 0})}>Reset</button>
                 <section>
                     {displayPresetTimers}
