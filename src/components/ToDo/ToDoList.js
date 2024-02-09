@@ -1,11 +1,24 @@
 import ToDo from "./ToDo";
 import ToDoForm from "./ToDoForm";
 import { todos } from "../../data/todo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+
+const prevToDos = JSON.parse(localStorage.getItem("sp-list"))
 
 function ToDoList() {
-    const [todoList, setTodoList] = useState(todos);
+    const [todoList, setTodoList] = useState(prevToDos || todos);
     const [starModeOn, setStarModeOn] = useState(false);
+
+    function saveToDoChanges() {
+        console.log("saved!")
+        localStorage.setItem("sp-list", JSON.stringify(todoList))
+    }
+
+    useEffect(() => {
+        saveToDoChanges();
+    }, [todoList])
+
 
 
     function toggleCompleted(id) {
@@ -36,8 +49,6 @@ function ToDoList() {
     }
 
     function editToDo(newTaskTitle, taskId) {
-        console.log(`editing task with id#${taskId} with new title: "${newTaskTitle}"`)
-
         setTodoList(prev => prev.map(todo => {
             if (todo.id === taskId) {
                 return {...todo, title: newTaskTitle}
@@ -60,7 +71,6 @@ function ToDoList() {
     }
 
     function clearCompleted() {
-        console.log("clear Completed activated")
         setTodoList(prev => {
             const result = [];
             prev.forEach(todo => {
@@ -105,7 +115,7 @@ function ToDoList() {
         <div style={listContainerStyle}>
             <h2>{starModeOn ? "[Starred Only] " : ""}To Do List</h2>
             <ToDoForm add={addToDo} starModeOn={starModeOn} />
-            <div>
+            <div id="todo-options">
                 <button onClick={() => setStarModeOn(!starModeOn) }>
                     {starModeOn ? "Show All Tasks" : "Only Show Starred Tasks"} 
                 </button>
@@ -114,7 +124,11 @@ function ToDoList() {
                 </button>
             </div>
             <main>
-                {todolistDisplay}  
+                {starModeOn && <p>***Note: New tasks cannot be created in Starred Only mode***</p>}
+
+                {
+                    todoList.length ? todolistDisplay : <p>Great work! You're all done!</p> 
+                }
             </main>
         </div>
   );

@@ -25,7 +25,6 @@ function ToDoForm(props) {
             disabled={starModeOn}
         />
         <button onClick={handleAdd} disabled={starModeOn || newTask.trim().length < 1}>➕ Add New Task</button> 
-        <p>***Note: New tasks cannot be created in Starred Only mode***</p>
     </form>
     );
 }
