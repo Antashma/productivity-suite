@@ -17,16 +17,13 @@ function Clock() {
     useEffect(() => {
         const timer = setInterval(() => {
             const update = getDateTime();
-            setCurrentDate(prev => {
-                return {
-                    ...prev,
-                    time: update.time,
-                    dayName: update.dayName,
-                    dayNum: update.dayNum,
-                    monthName: update.monthName,
-                    monthNum: update.monthNum,
-                    year: update.year
-                }
+            setCurrentDate({
+                time: update.time,
+                dayName: update.dayName,
+                dayNum: update.dayNum,
+                monthName: update.monthName,
+                monthNum: update.monthNum,
+                year: update.year
             })
         }, 1000)
 
@@ -40,8 +37,7 @@ function Clock() {
             {currentDate.time && currentDate.dayName ? (
             <div className="clock--text-container">
                 <div className="clock--day-text">
-                    <p>{currentDate.dayName}</p>
-                    <p>{currentDate.monthNum} . {currentDate.dayNum} . {currentDate.year}</p>
+                    <p>{currentDate.dayName}, {currentDate.monthName} {currentDate.dayNum} of {currentDate.year}</p>
                 </div>
 
                 <p className="clock--time-text">{currentDate.time}</p>
