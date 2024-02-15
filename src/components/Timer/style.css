@@ -1,0 +1,33 @@
+.timer--preset-container {
+    /* background-color: lime; */
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.timer--timer-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.timer--timer-btn-container button {
+    padding: 10px;
+
+}
+
+.timer--preset-btn {
+    padding:10px;
+
+}
+
+.timer--preset-btn::before {
+    content: "⏰";
+}
+
+.selected {
+    font-weight: bold;
+}
+
+.selected::before {
+    content: "✔️";
+}

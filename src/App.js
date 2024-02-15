@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <header style={headerStyle}>
         <div>
-          <h1>Let's get productive!</h1>
+          <h1>Sweet Productivity</h1>
           <p>a collection of productivity apps to help you get things done</p>
         </div>
         <nav style={navStyle}>

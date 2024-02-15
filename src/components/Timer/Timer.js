@@ -1,11 +1,11 @@
 import Time from "./Time";
 import { useEffect, useState } from "react";
 import {presetTimers} from "../../data/timer";
-
+import "./style.css";
 
 const initialTimer = {
-    id: "default",
-    name: "default",
+    id: 1,
+    name: "10 minute",
     duration: 10
 }
 
@@ -15,7 +15,7 @@ function Timer() {
     const [currentDuration, setCurrentDuration] = useState({minutes: timer.duration, seconds:0});
 
     const displayPresetTimers = presetTimers.map(preset => {
-        return <h3 key={preset.id} onClick={() => setTimer(preset)}>{preset.name}</h3>
+        return <button className={`timer--preset-btn ${timer.id === preset.id ? "selected" : ""}`} id={preset.id} key={preset.id} onClick={() => setTimer(preset)}>{preset.name}</button>
     })
 
     useEffect(() => {
@@ -30,7 +30,9 @@ function Timer() {
             </header>
             <main>
           
-
+                <section className="timer--preset-container">
+                    {displayPresetTimers}
+                </section>
                 <Time 
                     currentDuration={currentDuration}
                     setCurrentDuration={setCurrentDuration}
@@ -39,22 +41,24 @@ function Timer() {
                     timerData={timer}
                 />
 
-                <button 
-                    onClick={() => setTimerIsOn(!timerIsOn)}
-                >
-                    {!timerIsOn ? "Start" : "Pause"}
-                </button>
+                <section className="timer--timer-btn-container">
 
-                <button onClick={() => {
-                    setCurrentDuration({minutes: timer.duration, seconds: 0});
-                    setTimerIsOn(false); 
-                }}
-                >Stop</button>
+                    <button 
+                        onClick={() => setTimerIsOn(!timerIsOn)}
+                    >
+                        {!timerIsOn ? "▶️ Start" : " ⏸️ Pause"}
+                    </button>
 
-                <button onClick={() => setCurrentDuration({minutes: timer.duration, seconds: 0})}>Reset</button>
-                <section>
-                    {displayPresetTimers}
+                    <button onClick={() => {
+                        setCurrentDuration({minutes: timer.duration, seconds: 0});
+                        setTimerIsOn(false); 
+                    }}
+                    >⏹️ Stop</button>
+
+                    <button onClick={() => setCurrentDuration({minutes: timer.duration, seconds: 0})}> 🔁 Reset</button>
                 </section>
+
+
             </main>
         </div>
         );
