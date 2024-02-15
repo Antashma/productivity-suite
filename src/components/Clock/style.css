@@ -28,6 +28,8 @@
     margin: 0 20px;
     text-align: center;
     gap:50px;
+    font-family: "Sacramento", cursive;
+
 }
 
 .clock--loading-text {

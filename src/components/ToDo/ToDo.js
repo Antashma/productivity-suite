@@ -2,21 +2,26 @@ import "./style.css";
 import { useState } from "react";
 
 function ToDo(props) {
-    const [editModeOn, setEditModeOn] = useState(false);
-    const [taskTitle, setTaskTitle] = useState("")
+  const [editModeOn, setEditModeOn] = useState(false);
+  const [taskTitle, setTaskTitle] = useState("")
 
-    const { id, title, completed, priority } = props.todoData;
-    const { edit, toggle, del, toggleStar, isStarModeOn } = props;
-  
-    function handleEditMode() {
-        setEditModeOn(!editModeOn);
-        setTaskTitle(title);
-    }
+  const { id, title, completed, priority } = props.todoData;
+  const { edit, toggle, del, toggleStar, isStarModeOn } = props;
 
-    function handleEditSubmit() {
+  function handleEditMode() {
+      setEditModeOn(!editModeOn);
+      setTaskTitle(title);
+  }
+
+  function handleEditSubmit() {
         edit(taskTitle, id)
         handleEditMode();
-    }
+  }
+
+  function toggleOptionsContainer() {
+    const optionsContainer = document.querySelector(`#options-${id}`)
+    optionsContainer.classList.toggle("hidden")
+  }
   
   const completedStyle = {
     textDecoration: "line-through",
@@ -58,9 +63,10 @@ function ToDo(props) {
             <button onClick={handleEditSubmit}>Submit</button>
           </>
         )}
+        <button onClick={toggleOptionsContainer}>⚙️</button>
       </div>
-      <div>
-        <button id="edit" onClick={handleEditMode}>
+      <div id={`options-${id}`} className="todo--options-container hidden">
+        <button onClick={handleEditMode}>
           ✏️ {editModeOn ? "Cancel Edit" : "Edit"}
         </button>
         <button onClick={() => toggleStar(id)}>
