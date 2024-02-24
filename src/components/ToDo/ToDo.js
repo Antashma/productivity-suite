@@ -18,7 +18,10 @@ function ToDo(props) {
         handleEditMode();
   }
 
-  function toggleOptionsContainer() {
+  function toggleOptionsContainer(e) {
+    if (!e) {const e = window.event;}
+    e.cancelBubble = true;
+    if (e.stopPropagation) e.stopPropagation();
     const optionsContainer = document.querySelector(`#options-${id}`)
     optionsContainer.classList.toggle("hidden")
   }
@@ -37,15 +40,10 @@ function ToDo(props) {
       className="todo--container"
       style={isStarModeOn && priority !== 1 ? starModeOnVisibilityStyle : null}
     >
-      <div className="todo--container-left">
+      <div className="todo--container-left" onClick={toggle}
+>
         {!editModeOn ? (
           <>
-            <input
-              className="todo--container-checkInput"
-              type="checkbox"
-              value={completed}
-              onClick={toggle}
-            />
             <p
               style={completed ? completedStyle : null}
               className={priority === 1 ? "starred" : ""}
@@ -63,7 +61,7 @@ function ToDo(props) {
             <button onClick={handleEditSubmit}>Submit</button>
           </>
         )}
-        <button onClick={toggleOptionsContainer}>⚙️</button>
+        <button onClick={(e) => toggleOptionsContainer(e)}>⚙️</button>
       </div>
       <div id={`options-${id}`} className="todo--options-container hidden">
         <button onClick={handleEditMode}>

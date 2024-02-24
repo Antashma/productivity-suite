@@ -2,35 +2,58 @@
     background-color: magenta;
 }
 
+.starred {
+    font-weight: bold;
+}
+
 .starred::before {
     content: '⭐';
 }
 
 .todo--container {
+    width: 100%;
+    height: auto;
+    min-height: 50px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: center;
     font-size: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 10px;
+    color:whitesmoke;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .todo--container-left {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
 }
-
-.todo--container-checkInput {
-    width: 20px;
-    height: 20px
-}
-
 
 .todo--options-container {
     display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
+.todo--options-container button {
+    padding: 10px;
 }
 
 .hidden {
     display: none;
+}
+
+.todolist--container {
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    border-radius: 10px;
+    width: 50%;
+    display:flex;
+    flex-direction:column;
+    padding: 0 25px;
 }

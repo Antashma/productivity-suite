@@ -1,13 +1,13 @@
 .App {
   display: flex;
   flex-direction: column;
-
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 h1, h2, h3 {
-  font-family: "Sacramento", cursive;
+  font-family: "Zilla Slab", serif;
   font-weight: bold;
-  color: #FE5D9F;
 }
 
 h1 {
@@ -20,16 +20,20 @@ h2 {
 
 a:link, a:visited {
   text-decoration: none;
-  background-color: #FE5D9F;
+  background-color: whitesmoke;
   border-radius: 3px;
-  color:black;
+  color:#000;
   font-weight: bold;
-  padding: 5px 10px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 50px;
+  border: 2px solid #000;
+
 }
 
 a:hover {
-  background-color: #F4BBD3;
-  color: black;
+  background-color: #000;
+  color: whitesmoke;
 }

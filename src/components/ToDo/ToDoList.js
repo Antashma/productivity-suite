@@ -95,9 +95,6 @@ function ToDoList() {
         }))
     }
 
-    const listContainerStyle ={
-        width: "500px"
-    }
 
     const todolistDisplay = todoList?.map(todo => {
         return <ToDo 
@@ -112,7 +109,7 @@ function ToDoList() {
     })
 
     return (
-        <div style={listContainerStyle}>
+        <div className="todolist--container">
             <h2>{starModeOn ? "[Starred Only] " : ""}To Do List</h2>
             <ToDoForm add={addToDo} starModeOn={starModeOn} />
             <div id="todo-options">

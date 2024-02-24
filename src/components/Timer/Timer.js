@@ -22,8 +22,16 @@ function Timer() {
         setCurrentDuration({minutes: timer.duration, seconds: 0})
     }, [timer])
 
+
+    const timerContainerStyle ={
+        width: "50%",
+        display:"flex",
+        flexDirection: "column",
+        
+    }
+
     return (
-        <div>
+        <div style={timerContainerStyle}>
             <header>
                 <h2>Timer</h2>
                 <p>set for focus or breaks</p>
