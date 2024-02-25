@@ -4,13 +4,12 @@ import { useState } from "react";
 function ToDo(props) {
   const [editModeOn, setEditModeOn] = useState(false);
   const [taskTitle, setTaskTitle] = useState("")
-
   const { id, title, completed, priority } = props.todoData;
   const { edit, toggle, del, toggleStar, isStarModeOn } = props;
 
-  function handleEditMode() {
-      setEditModeOn(!editModeOn);
-      setTaskTitle(title);
+  function handleEditMode(editModeSetting) {  
+    setTaskTitle(title);
+    setEditModeOn(editModeSetting); 
   }
 
   function handleEditSubmit() {
@@ -54,23 +53,31 @@ function ToDo(props) {
         ) : (
           <>
             <input 
+                className="todo--task-title-input"
                 type="text"
                 value={taskTitle} 
                 onChange={e => setTaskTitle(e.target.value)} 
             />
-            <button onClick={handleEditSubmit}>Submit</button>
           </>
         )}
-        <button onClick={(e) => toggleOptionsContainer(e)}>⚙️</button>
+        <button disabled={editModeOn} onClick={(e) => toggleOptionsContainer(e)}>⚙️</button>
       </div>
-      <div id={`options-${id}`} className="todo--options-container hidden">
-        <button onClick={handleEditMode}>
-          ✏️ {editModeOn ? "Cancel Edit" : "Edit"}
-        </button>
-        <button onClick={() => toggleStar(id)}>
-          ⭐{priority === 1 ? "Unstar" : "Star"}
-        </button>
-        <button onClick={() => del(id)}>❎ Del</button>
+      <div id={`options-${id}`} className="todo--options-container hidden">        
+         {!editModeOn ?
+          <div id={`normalOptions-${id}`}>
+          
+            <button onClick={() => handleEditMode(true)}>✏️Edit</button>
+
+            <button onClick={() => toggleStar(id)}>
+              ⭐{priority === 1 ? "Unstar" : "Star"}
+            </button>
+            <button onClick={() => del(id)}>❎Del</button>
+          </div> :
+          <div className="todo--editOptions-container">
+            <button onClick={() => handleEditMode(false)}>Cancel</button>
+            <button onClick={handleEditSubmit}>Submit</button>
+          </div>
+        }
       </div>
     </div>
   );

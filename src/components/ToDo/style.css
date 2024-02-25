@@ -57,3 +57,8 @@
     flex-direction:column;
     padding: 0 25px;
 }
+
+.todo--task-title-input {
+    height: 30px;
+    width: 100%;
+}
