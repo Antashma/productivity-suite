@@ -27,7 +27,7 @@ function ToDo(props) {
   
   const completedStyle = {
     textDecoration: "line-through",
-    color: "silver",
+    color: "#9C969F",
   };
 
   const starModeOnVisibilityStyle = {

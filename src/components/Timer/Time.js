@@ -27,15 +27,9 @@ function Time(props) {
     setCurrentDuration({seconds: newSeconds, minutes: newMinutes})
   } 
 
-  const timeStyle = {
-    fontSize: "6rem",
-    fontWeight: "bold",
-    fontStyle: "italic",
-    letterSpacing: "0.5rem",
-}
 
   return ( 
-    <p style={timeStyle}>{currentDuration.minutes < 10 ? "0" + currentDuration.minutes : currentDuration.minutes} : {currentDuration.seconds < 10 ? "0" + currentDuration.seconds : currentDuration.seconds}</p>
+    <p class="time--container">{currentDuration.minutes < 10 ? "0" + currentDuration.minutes : currentDuration.minutes} : {currentDuration.seconds < 10 ? "0" + currentDuration.seconds : currentDuration.seconds}</p>
     );
 }
 
