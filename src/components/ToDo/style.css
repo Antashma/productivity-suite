@@ -42,8 +42,22 @@
     justify-content: end;
 }
 
-.todo--options-container button {
+/* .todo--options-container button {
     padding: 10px;
+} */
+
+button.todo--gearBtn {
+    width:50px;
+    border: none;
+    background-color: transparent;
+    align-self: center;
+    margin:0;
+    cursor: pointer;
+}
+
+button.todo--gearBtn:hover {
+    background-color: transparent;
+    border: 2px solid #333;
 }
 
 .hidden {
@@ -51,7 +65,6 @@
 }
 
 .todolist--container {
-    /* background-color: rgba(0, 0, 0, 0.7); */
     border-radius: 10px;
     width: 50%;
     display:flex;
@@ -59,7 +72,35 @@
     padding: 0 25px;
 }
 
+.todolist-options {
+    display: flex;
+    width: 100%;
+    margin: 10px 0;
+    justify-content: center;
+    align-items: center;
+}
+
 .todo--task-title-input {
     height: 30px;
     width: 100%;
+}
+
+
+.todoForm--form {
+    display: flex;
+    width: 100%;
+}
+
+.todoForm--form input {
+    height:50px;
+    padding: 0 5px;
+}
+
+.todoForm--form input[type=text] {
+    width: 70%;
+
+}
+
+.todoForm--form input[type=button] {
+    width: 30%;
 }

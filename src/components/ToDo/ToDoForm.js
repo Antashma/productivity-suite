@@ -11,21 +11,31 @@ function ToDoForm(props) {
     }
 
     function handleChange(e) {
-            setNewTask(e.target.value) 
+        setNewTask(e.target.value) 
     }
 
 
     return (
-    <form>
-        <input 
-            type="text" 
-            placeholder="create task"
-            value={newTask}
-            onChange={handleChange} 
-            disabled={starModeOn}
-        />
-        <button onClick={handleAdd} disabled={starModeOn || newTask.trim().length < 1}>➕ Add New Task</button> 
-    </form>
+        <form id="addTaskForm" class="todoForm--form">
+            <input
+                id="taskName"
+                name="taskName"
+                type="text" 
+                placeholder="create task"
+                value={newTask}
+                onChange={handleChange} 
+                disabled={starModeOn}
+            />
+            <input 
+                id="addTask" 
+                name="addTask" 
+                type="button"
+                value="➕ Add New Task"
+                onClick={handleAdd} 
+                disabled={starModeOn || newTask.trim().length < 1}
+            />
+            
+        </form>
     );
 }
 

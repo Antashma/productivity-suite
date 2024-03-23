@@ -60,7 +60,7 @@ function ToDo(props) {
             />
           </>
         )}
-        <button disabled={editModeOn} onClick={(e) => toggleOptionsContainer(e)}>⚙️</button>
+        <button class="todo--gearBtn" disabled={editModeOn} onClick={(e) => toggleOptionsContainer(e)}>⚙️</button>
       </div>
       <div id={`options-${id}`} className="todo--options-container hidden">        
          {!editModeOn ?
