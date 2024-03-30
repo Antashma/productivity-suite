@@ -54,16 +54,18 @@ function Timer() {
                     <button 
                         onClick={() => setTimerIsOn(!timerIsOn)}
                     >
-                        {!timerIsOn ? "▶️ Start" : " ⏸️ Pause"}
+                        {!timerIsOn ? "Start" : "Pause"}
                     </button>
 
                     <button onClick={() => {
                         setCurrentDuration({minutes: timer.duration, seconds: 0});
                         setTimerIsOn(false); 
                     }}
-                    >⏹️ Stop</button>
+                    >Stop</button>
 
-                    <button onClick={() => setCurrentDuration({minutes: timer.duration, seconds: 0})}> 🔁 Reset</button>
+                    <button onClick={() => setCurrentDuration({minutes: timer.duration, seconds: 0})}>
+                        Reset
+                    </button>
                 </section>
 
 

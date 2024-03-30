@@ -29,7 +29,7 @@ function Time(props) {
 
 
   return ( 
-    <p class="time--container">{currentDuration.minutes < 10 ? "0" + currentDuration.minutes : currentDuration.minutes} : {currentDuration.seconds < 10 ? "0" + currentDuration.seconds : currentDuration.seconds}</p>
+    <p class="time--container">{currentDuration.minutes < 10 ? "0" + currentDuration.minutes : currentDuration.minutes}:{currentDuration.seconds < 10 ? "0" + currentDuration.seconds : currentDuration.seconds}</p>
     );
 }
 

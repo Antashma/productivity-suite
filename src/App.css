@@ -3,12 +3,13 @@
   flex-direction: column;
   max-width: 1024px;
   margin: 0 auto;
+  color: #2d2c38;
 }
 
 h1, h2, h3 {
   font-family: "Zilla Slab", serif;
-  font-weight: bold;
-  color: #BA9BAF;
+  font-weight: normal;
+  color: oldlace;
 }
 
 h1 {
@@ -21,43 +22,32 @@ h2 {
 
 a:link, a:visited {
   text-decoration: none;
-  background-color: #E4B1C0;
+  background: none;
   border-radius: 3px;
-  color:#333;
+  color:oldlace;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100px;
   height: 50px;
-  border: 2px solid #333;
+  border: 2px solid oldlace;
 
 }
 
 a:hover, button:hover {
-  background-color: #B4A3CC;
-  color: whitesmoke;
+  background-color:  rgba(255, 255, 255, 0.3);
 }
 
 button {
   text-decoration: none;
-  background-color: #E4B1C0;
+  background: none;
   border-radius: 3px;
-  color:#333;
+  color:oldlace;
   font-weight: bold;
   width: 100px;
   height: 50px;
-  border: 2px solid #333;
+  border: 2px solid oldlace;
   text-align: center;
   margin: 0 10px;
 }
-
-
-/* 
-#C2A0B6 (dark lilac)
-#A19CA5 (pale olive)
-#D6C8C4 (pale gold)
-#BAAAD4 (pale indigo)
-#EDB9C9 (light pink)
-
-*/

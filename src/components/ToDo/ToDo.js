@@ -27,7 +27,7 @@ function ToDo(props) {
   
   const completedStyle = {
     textDecoration: "line-through",
-    color: "#9C969F",
+    color: "#c87e96",
   };
 
   const starModeOnVisibilityStyle = {
@@ -60,18 +60,18 @@ function ToDo(props) {
             />
           </>
         )}
-        <button class="todo--gearBtn" disabled={editModeOn} onClick={(e) => toggleOptionsContainer(e)}>⚙️</button>
+        <button class="todo--gearBtn" disabled={editModeOn} onClick={(e) => toggleOptionsContainer(e)}>⁝</button>
       </div>
       <div id={`options-${id}`} className="todo--options-container hidden">        
          {!editModeOn ?
           <div id={`normalOptions-${id}`}>
           
-            <button onClick={() => handleEditMode(true)}>✏️Edit</button>
+            <button onClick={() => handleEditMode(true)}>Edit</button>
 
             <button onClick={() => toggleStar(id)}>
               ⭐{priority === 1 ? "Unstar" : "Star"}
             </button>
-            <button onClick={() => del(id)}>❎Del</button>
+            <button onClick={() => del(id)}>Del</button>
           </div> :
           <div className="todo--editOptions-container">
             <button onClick={() => handleEditMode(false)}>Cancel</button>

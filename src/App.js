@@ -15,7 +15,7 @@ function App() {
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
-    padding: "15px",
+    padding: "15px 0",
   }
 
   return (

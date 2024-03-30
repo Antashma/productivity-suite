@@ -11,7 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url(./images/hip-square.webp) fixed;
+  /* background: url(./images/full-bloom.webp) fixed; */
+  background-color: #c87e96;
 }
 
 code {

@@ -22,30 +22,24 @@
 
 }
 
-.timer--preset-btn::before {
-    content: "⏰";
-}
-
 .selected {
     font-weight: bold;
 }
 
 .selected::before {
-    content: "✔️";
+    content: "✓ ";
+    color: gold;
 }
 
 /* TIME STYLE */
 .time--container {
     font-size: 6rem;
     font-weight: bold;
-    font-style: italic;
     letter-spacing:0.5rem;
     border-radius:5px;
-    background-color: #CEC0BD;
+    background-color: rgba(255, 255, 255, 0.3);
     display: flex;
     justify-content:center;
     align-content: center;
     margin: 10px 0;
-    border:2px solid #333;
-    color: #333
 }

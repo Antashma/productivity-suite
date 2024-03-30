@@ -19,12 +19,10 @@
     align-items: flex-start;
     justify-content: center;
     font-size: 1.5rem;
-    background-color: #CEC0BD;
+    background-color: rgba(255, 255, 255, 0.3);
     margin-bottom: 10px;
-    color:#333;
     border-radius: 5px;
     padding: 10px;
-    border: 2px solid #333;
 }
 
 .todo--container-left {
@@ -42,22 +40,18 @@
     justify-content: end;
 }
 
-/* .todo--options-container button {
-    padding: 10px;
-} */
-
 button.todo--gearBtn {
-    width:50px;
+    width:5%;
+    font-size: 2rem;
     border: none;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.3);
     align-self: center;
     margin:0;
     cursor: pointer;
 }
 
 button.todo--gearBtn:hover {
-    background-color: transparent;
-    border: 2px solid #333;
+    border: 2px solid oldlace;
 }
 
 .hidden {
@@ -69,7 +63,6 @@ button.todo--gearBtn:hover {
     width: 50%;
     display:flex;
     flex-direction:column;
-    padding: 0 25px;
 }
 
 .todolist-options {

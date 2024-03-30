@@ -21,7 +21,7 @@ export default function getDateTime() {
     
     //configure month number and name
     const monthArr = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
-    const monthNum = date.getMonth() + 1;
+    const monthNum = date.getMonth();
     const monthName = monthArr[monthNum]
     
     //configure year
