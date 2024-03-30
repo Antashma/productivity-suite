@@ -1,30 +1,44 @@
 import Clock from "./Clock/Clock";
+import DividerVertical from "./DividerVertical";
+import DividerHorizontal from "./DividerHorizontal";
 import Timer from "./Timer/Timer";
 import ToDoList from "./ToDo/ToDoList";
+import Notes from "./Notes/Notes";
 
 function Home() {
 
-  const prodAppsContainerStyle = {
+  const homeContainerStyle = {
     display: "flex",
     flexDirection: "column"
   }
   
-  const todoAndTimerContainerStyle = {
+  const prodAppsContainerStyle = {
     display: "flex",
     justifyContent: "space-between",
     gap: "20px"
   }
 
+  const timerAndNotesContainerStyle = {
+    display: "flex",
+    width:"50%",
+    flexDirection: "column",
+    justifyContent:"space-between",
+    gap:"20px"
+  }
+
   return (
-    <div>
+    <main style={homeContainerStyle}>
+      <Clock />
       <div style={prodAppsContainerStyle}>
-        <Clock />
-        <div style={todoAndTimerContainerStyle}>
-          <ToDoList />
+        <ToDoList />
+        <DividerVertical />
+        <div style={timerAndNotesContainerStyle}>
           <Timer />
-        </div>
+          <DividerHorizontal />
+          <Notes />
+        </div>         
       </div>
-    </div>
+    </main>
   );
 }
 

@@ -24,7 +24,7 @@ function Timer() {
 
 
     const timerContainerStyle ={
-        width: "50%",
+        width: "100%",
         display:"flex",
         flexDirection: "column",
         

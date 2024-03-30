@@ -16,7 +16,7 @@ function ToDoForm(props) {
 
 
     return (
-        <form id="addTaskForm" class="todoForm--form">
+        <form id="addTaskForm" className="todoForm--form">
             <input
                 id="taskName"
                 name="taskName"

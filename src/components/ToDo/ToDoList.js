@@ -112,7 +112,7 @@ function ToDoList() {
         <div className="todolist--container">
             <h2>{starModeOn ? "[Starred Only] " : ""}To Do List</h2>
             <ToDoForm add={addToDo} starModeOn={starModeOn} />
-            <div class="todolist-options">
+            <div className="todolist-options">
                 <button onClick={() => setStarModeOn(!starModeOn) }>
                     {starModeOn ? "Show All Tasks" : "Only Show Starred Tasks"} 
                 </button>

@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import { Link, Routes, Route } from "react-router-dom";
 import "./App.css";
+import DividerHorizontal from "./components/DividerHorizontal";
 
 function App() {
 
@@ -18,16 +19,20 @@ function App() {
     padding: "15px 0",
   }
 
+  const footerStyle = {
+    marginBlock:"20px"
+  }
+
   return (
     <div className="App">
       <header style={headerStyle}>
         <div>
-          <h1>Sweet Productivity</h1>
+          <h1>time & tasks corner</h1>
           <p>a collection of productivity apps to help you get things done</p>
         </div>
         <nav style={navStyle}>
-          <Link to="/">Home</Link>
-          <Link to="about">About</Link>
+          <Link to="/">home</Link>
+          <Link to="about">about</Link>
         </nav>
       </header>
 
@@ -35,6 +40,12 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="about" element={<About />} />
       </Routes>
+      
+      <footer style={footerStyle}>
+        <DividerHorizontal />
+        <h3>Footer header</h3>
+        <p>more info for footer here!</p>
+      </footer>
     </div>
   );
 }
