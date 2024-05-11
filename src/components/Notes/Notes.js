@@ -1,3 +1,4 @@
+import NoteForm from "./NoteForm";
 
 
 
@@ -21,7 +22,7 @@ function Notes() {
         <section style={notesContainerStyle}>
             <h2>Notepad</h2>
             <main style={userNotesContainerStyle}>
-          enter notes here
+                <NoteForm />
             </main>
         </section>
         );

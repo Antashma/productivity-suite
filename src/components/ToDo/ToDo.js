@@ -30,6 +30,8 @@ function ToDo(props) {
     color: "#c87e96",
   };
 
+
+  // pink : #c87e96
   const starModeOnVisibilityStyle = {
     display: "none",
   };
