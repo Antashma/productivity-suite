@@ -2,13 +2,21 @@ import ToDo from "./ToDo";
 import ToDoForm from "./ToDoForm";
 import { todos } from "../../data/todo";
 import { useEffect, useState } from "react";
+import useSound from "use-sound";
 
+import taskSfx from "../../sounds/task-sounds-sprite.mp3";
 
 const prevToDos = JSON.parse(localStorage.getItem("sp-list"))
 
 function ToDoList() {
     const [todoList, setTodoList] = useState(prevToDos || todos);
     const [starModeOn, setStarModeOn] = useState(false);
+    const [play] = useSound(taskSfx, {
+        sprite: {
+            completeTask: [0, 500],
+            unCompleteTask: [580, 2000]
+        }
+    })
 
     function saveToDoChanges() {
         console.log("saved!")
@@ -22,9 +30,14 @@ function ToDoList() {
 
 
     function toggleCompleted(id) {
+        //play sounds
+        
+        
+        //toggle complete
         const found = todoList.find(todo => id === todo.id)
         found.completed = !found.completed
-        
+        if (found.completed) play({id: "completeTask"});
+        else play({id: "unCompleteTask"}) 
         setTodoList(prev => prev.map(todo => {
             if (todo.id === id) {
                 return found
@@ -32,6 +45,7 @@ function ToDoList() {
                 return todo
             }
         }))
+
     }
 
     function addToDo(newTask) {

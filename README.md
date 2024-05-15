@@ -1,3 +1,8 @@
+# sound credits
+completed task - [TechspiredMinds](https://freesound.org/people/TechspiredMinds/sounds/729216/)
+
+un-complete task - [steaq](https://freesound.org/people/steaq/sounds/594210/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
